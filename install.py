@@ -10,6 +10,7 @@ root = config.partitions.root.partition
 
 hostname = config.hostname
 language = config.language
+keymap = config.keymap
 
 commands = [
     'cat mirrorlist > /etc/pacman.d/mirrorlist',
@@ -26,7 +27,7 @@ commands = [
     f'arch-chroot /mnt bash -c "echo {language}.UTF-8 UTF-8 >> /etc/locale.gen"',
     'arch-chroot /mnt locale-gen',
     f'arch-chroot /mnt bash -c "echo LANG={language}.UTF-8 > /etc/locale.conf"',
-    'arch-chroot /mnt bash -c "echo KEYMAP=br-abnt2 > /etc/vconsole.conf"',
+    f'arch-chroot /mnt bash -c "echo KEYMAP={keymap} > /etc/vconsole.conf"',
     f'arch-chroot /mnt bash -c "echo {hostname} > /etc/hostname"',
     'arch-chroot /mnt passwd',
     'arch-chroot /mnt pacman -S grub efibootmgr',

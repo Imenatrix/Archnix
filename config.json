@@ -1,5 +1,6 @@
 {
     "language" : "pt_BR",
+    "keymap" : "br-abnt2",
     "hostname" : "arch",
     "partitions" : {
         "efi" : {
