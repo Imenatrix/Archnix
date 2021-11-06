@@ -1,6 +1,7 @@
 {
     "language" : "pt_BR",
     "keymap" : "br-abnt2",
+    "timezone" : "Brazil/East",
     "hostname" : "arch",
     "partitions" : {
         "efi" : {

@@ -11,6 +11,7 @@ root = config.partitions.root.partition
 hostname = config.hostname
 language = config.language
 keymap = config.keymap
+timezone = config.timezone
 
 commands = [
     'cat mirrorlist > /etc/pacman.d/mirrorlist',
@@ -22,7 +23,7 @@ commands = [
     f'mount {efi} /mnt/efi',
     'pacstrap /mnt base linux linux-firmware dhcpcd',
     'genfstab -U /mnt >> /mnt/etc/fstab',
-    'arch-chroot /mnt ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime',
+    f'arch-chroot /mnt ln -sf /usr/share/zoneinfo/{timezone} /etc/localtime',
     'arch-chroot /mnt hwclock --systohc',
     f'arch-chroot /mnt bash -c "echo {language}.UTF-8 UTF-8 >> /etc/locale.gen"',
     'arch-chroot /mnt locale-gen',
