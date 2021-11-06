@@ -2,7 +2,7 @@ timedatectl set-ntp true
 mount /dev/sda2 /mnt
 mkdir /mnt/efi
 mount /dev/sda1 /mnt/efi
-pacstrap /mnt base linux linux-firmware dhcpd
+pacstrap /mnt base linux linux-firmware dhcp
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
