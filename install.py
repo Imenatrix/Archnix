@@ -13,6 +13,8 @@ language = config.language
 keymap = config.keymap
 timezone = config.timezone
 
+users = config.users
+
 commands = [
     'cat mirrorlist > /etc/pacman.d/mirrorlist',
     'timedatectl set-ntp true',
@@ -35,6 +37,10 @@ commands = [
     'arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg',
 ]
+
+for user in users:
+    commands.append(f'arch-chroot /mnt useradd -m {user}')
+    commands.append(f'passwd {user}')
 
 for command in commands:
     os.system(command)

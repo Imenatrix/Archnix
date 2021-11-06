@@ -12,5 +12,6 @@
             "partition" : "/dev/sda2",
             "filesystem" : "ext4"
         }
-    }
+    },
+    "users" : ["user"]
 }
