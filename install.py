@@ -22,7 +22,7 @@ commands = [
     'genfstab -U /mnt >> /mnt/etc/fstab',
     'arch-chroot /mnt ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime',
     'arch-chroot /mnt hwclock --systohc',
-    'arch-chroot /mnt bash -c "echo "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen"',
+    'arch-chroot /mnt bash -c "echo pt_BR.UTF-8 UTF-8 >> /etc/locale.gen"',
     'arch-chroot /mnt locale-gen',
     'arch-chroot /mnt bash -c "echo LANG=pt_BR.UTF-8 > /etc/locale.conf',
     'arch-chroot /mnt bash -c "echo KEYMAP=br-abnt2 > /etc/vconsole.conf"',
