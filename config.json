@@ -1,0 +1,13 @@
+{
+    "hostname" : "arch",
+    "partitions" : {
+        "efi" : {
+            "partition" : "/dev/sda1",
+            "filesystem" : "FAT32"
+        },
+        "root" : {
+            "partition" : "/dev/sda2",
+            "filesystem" : "ext4"
+        }
+    }
+}
