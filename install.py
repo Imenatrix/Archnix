@@ -1,11 +1,12 @@
 import os
 import json
+from types import SimpleNamespace
 
 with open('config.json') as config_file:
-    config = json.load(config_file)
+    config = json.load(config_file, object_hook = lambda d: SimpleNamespace(**d))
 
 efi = config.partitions.efi.partition
-root = config.partitions.root.parition
+root = config.partitions.root.partition
 
 hostname = config.hostname
 
