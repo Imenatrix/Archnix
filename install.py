@@ -18,7 +18,7 @@ commands = [
     f'mount {root} /mnt',
     'mkdir /mnt/efi',
     f'mount {efi} /mnt/efi',
-    'pacstrap /mnt base linux linux-firmware dhcp',
+    'pacstrap /mnt base linux linux-firmware dhcpcd',
     'genfstab -U /mnt >> /mnt/etc/fstab',
     'arch-chroot /mnt ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime',
     'arch-chroot /mnt hwclock --systohc',
