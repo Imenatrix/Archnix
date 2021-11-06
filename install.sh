@@ -1,3 +1,4 @@
+cat mirrorlist > /etc/pacman.d/mirrorlist
 timedatectl set-ntp true
 mount /dev/sda2 /mnt
 mkdir /mnt/efi
