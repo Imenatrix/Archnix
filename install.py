@@ -61,5 +61,7 @@ for user in users:
     commands.append(f'arch-chroot /mnt useradd -m -G wheel -s /bin/{user.shell} {user.login}')
     commands.append(f'arch-chroot /mnt passwd {user.login}')
 
+commands += config.postinstall
+
 for command in commands:
     os.system(command)

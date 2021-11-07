@@ -32,5 +32,8 @@
     "services" : [
         "dhcpcd",
         "lightdm"
+    ],
+    "postinstall" : [
+        "arch-chroot /mnt /usr/bin/runuser -u user -- fish -c 'set -U fish_greeting \"\"'"
     ]
 }
