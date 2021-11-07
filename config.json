@@ -16,13 +16,21 @@
     "users" : [
         {
             "login" : "user",
-            "shell" : "bash"
+            "shell" : "fish"
         }
     ],
     "packages" : [
-        "dhcpcd"
+        "dhcpcd",
+        "qtile",
+        "xorg-server",
+        "ligthdm",
+        "lightdm-gtk-greeter",
+        "alacritty",
+        "brave-bin",
+        "fish"
     ],
     "services" : [
-        "dhcpcd"
+        "dhcpcd",
+        "lightdm"
     ]
 }
