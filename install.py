@@ -23,7 +23,7 @@ commands = [
     f'mount {root} /mnt',
     'mkdir /mnt/efi',
     f'mount {efi} /mnt/efi',
-    'pacstrap /mnt base linux linux-firmware dhcpcd',
+    'pacstrap /mnt base linux linux-firmware grub efibootmgr',
     'genfstab -U /mnt >> /mnt/etc/fstab',
     f'arch-chroot /mnt ln -sf /usr/share/zoneinfo/{timezone} /etc/localtime',
     'arch-chroot /mnt hwclock --systohc',
@@ -33,7 +33,6 @@ commands = [
     f'arch-chroot /mnt bash -c "echo KEYMAP={keymap} > /etc/vconsole.conf"',
     f'arch-chroot /mnt bash -c "echo {hostname} > /etc/hostname"',
     'arch-chroot /mnt passwd',
-    'arch-chroot /mnt pacman -S grub efibootmgr',
     'arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg',
 ]
