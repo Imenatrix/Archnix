@@ -23,7 +23,7 @@
         "dhcpcd",
         "qtile",
         "xorg-server",
-        "ligthdm",
+        "lightdm",
         "lightdm-gtk-greeter",
         "alacritty",
         "brave-bin",
