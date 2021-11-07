@@ -52,7 +52,7 @@ commands = [
     'arch-chroot /mnt /usr/bin/runuser -u yay-tmp -- bash -c "cd ~/yay-bin && makepkg -si"',
     'arch-chroot /mnt sed -i "s/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers',
     'arch-chroot /mnt sed -i "s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers',
-    f'arch-chroot /mnt pacman -S {" ".join(config.packages)}',
+    f'arch-chroot /mnt yay -S {" ".join(config.packages)}',
     f'arch-chroot /mnt systemctl enable {" ".join(services)}',
 ]
 
