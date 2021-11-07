@@ -21,6 +21,7 @@ packages = [
     'grub',
     'efibootmgr'
 ] + config.packages
+services = config.services
 
 commands = [
     'cat mirrorlist > /etc/pacman.d/mirrorlist',
@@ -42,6 +43,7 @@ commands = [
     'arch-chroot /mnt passwd',
     'arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg',
+    f'arch-chroot /mtn systemctl enable {" ".join(services)}'
 ]
 
 for user in users:

@@ -16,5 +16,8 @@
     "users" : ["user"],
     "packages" : [
         "dhcpcd"
+    ],
+    "services" : [
+        "dhcpcd"
     ]
 }
