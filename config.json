@@ -13,7 +13,12 @@
             "filesystem" : "ext4"
         }
     },
-    "users" : ["user"],
+    "users" : [
+        {
+            "login" : "user",
+            "shell" : "bash"
+        }
+    ],
     "packages" : [
         "dhcpcd"
     ],

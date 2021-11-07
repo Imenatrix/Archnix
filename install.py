@@ -50,8 +50,8 @@ commands = [
 ]
 
 for user in users:
-    commands.append(f'arch-chroot /mnt useradd -m -G wheel {user}')
-    commands.append(f'arch-chroot /mnt passwd {user}')
+    commands.append(f'arch-chroot /mnt useradd -m -G wheel -s /bin/{user.shell} {user.login}')
+    commands.append(f'arch-chroot /mnt passwd {user.login}')
 
 for command in commands:
     os.system(command)
