@@ -17,7 +17,7 @@ users = config.users
 
 packages = [
     'base',
-    'base-devel',
+    'sudo',
     'linux',
     'linux-firmware',
     'grub',
