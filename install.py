@@ -16,11 +16,12 @@ timezone = config.timezone
 users = config.users
 
 packages = [
+    'base',
+    'base-devel',
     'linux',
     'linux-firmware',
     'grub',
     'efibootmgr'
-    'base-devel'
 ] + config.packages
 services = config.services
 
@@ -32,7 +33,7 @@ commands = [
     f'mount {root} /mnt',
     'mkdir /mnt/efi',
     f'mount {efi} /mnt/efi',
-    f'pacstrap /mnt base linux {" ".join(packages)}',
+    f'pacstrap /mnt {" ".join(packages)}',
     'genfstab -U /mnt >> /mnt/etc/fstab',
     f'arch-chroot /mnt ln -sf /usr/share/zoneinfo/{timezone} /etc/localtime',
     'arch-chroot /mnt hwclock --systohc',
