@@ -45,9 +45,15 @@ commands = [
     'arch-chroot /mnt passwd',
     'arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg',
+    'arch-chroot /mnt pacman -S git base-devel',
+    'arch-chroot /mnt useradd -m -G wheel yay-tmp',
+    'arch-chroot /mnt sed -i "s/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers',
+    'arch-chroot /mnt /usr/bin/runuser -u yay-tmp -- bash -c "cd ~ && git clone https://aur.archlinux.org/yay-bin.git"',
+    'arch-chroot /mnt /usr/bin/runuser -u yay-tmp -- bash -c "cd ~/yay-bin && makepkg -si"',
+    'arch-chroot /mnt sed -i "s/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers',
+    'arch-chroot /mnt sed -i "s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers',
     f'arch-chroot /mnt pacman -S {" ".join(config.packages)}',
     f'arch-chroot /mnt systemctl enable {" ".join(services)}',
-    'arch-chroot /mnt bash -c "echo %wheel ALL=\(ALL\) ALL >> /etc/sudoers"'
 ]
 
 for user in users:
