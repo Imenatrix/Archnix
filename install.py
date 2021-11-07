@@ -51,7 +51,7 @@ commands = [
     'arch-chroot /mnt /usr/bin/runuser -u yay-tmp -- bash -c "cd ~ && git clone https://aur.archlinux.org/yay-bin.git"',
     'arch-chroot /mnt /usr/bin/runuser -u yay-tmp -- bash -c "cd ~/yay-bin && makepkg -si"',
     f'arch-chroot /mnt /usr/bin/runuser -u yay-tmp -- yay -S {" ".join(config.packages)}',
-    'arch-chroot /mnt userdel -r -Z yay-tmp',
+    'arch-chroot /mnt userdel -r yay-tmp',
     'arch-chroot /mnt sed -i "s/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers',
     'arch-chroot /mnt sed -i "s/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers',
     f'arch-chroot /mnt systemctl enable {" ".join(services)}',
