@@ -15,6 +15,13 @@ timezone = config.timezone
 
 users = config.users
 
+packages = [
+    'linux',
+    'linux-firmware',
+    'grub',
+    'efibootmgr'
+] + config.packages
+
 commands = [
     'cat mirrorlist > /etc/pacman.d/mirrorlist',
     'timedatectl set-ntp true',
@@ -23,7 +30,7 @@ commands = [
     f'mount {root} /mnt',
     'mkdir /mnt/efi',
     f'mount {efi} /mnt/efi',
-    'pacstrap /mnt base linux linux-firmware grub efibootmgr',
+    f'pacstrap /mnt base linux {" ".join(packages)}',
     'genfstab -U /mnt >> /mnt/etc/fstab',
     f'arch-chroot /mnt ln -sf /usr/share/zoneinfo/{timezone} /etc/localtime',
     'arch-chroot /mnt hwclock --systohc',
