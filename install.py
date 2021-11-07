@@ -40,7 +40,7 @@ commands = [
 
 for user in users:
     commands.append(f'arch-chroot /mnt useradd -m {user}')
-    commands.append(f'passwd {user}')
+    commands.append(f'arch-chroot /mnt passwd {user}')
 
 for command in commands:
     os.system(command)
