@@ -45,7 +45,7 @@ commands = [
     'arch-chroot /mnt passwd',
     'arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg',
-    f'arch-chroot /mnt systemctl enable {" ".join(services)}'
+    f'arch-chroot /mnt systemctl enable {" ".join(services)}',
     'arch-chroot /mnt bash -c "echo %wheel ALL=(ALL) ALL >> /etc/sudoers"'
 ]
 
