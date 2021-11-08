@@ -59,7 +59,7 @@ commands = [
     f'arch-chroot /mnt bash -c "echo {hostname} > /etc/hostname"',
     'arch-chroot /mnt passwd',
     'arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
-    'arch-chroot /mnt bash -c "echo GRUB_DISABLE_OS_PROBER=false >> /etc/default/grub"'
+    'arch-chroot /mnt bash -c "echo GRUB_DISABLE_OS_PROBER=false >> /etc/default/grub"',
     'arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg',
     'arch-chroot /mnt pacman -S git base-devel',
     'arch-chroot /mnt useradd -m -G wheel yay-tmp',
