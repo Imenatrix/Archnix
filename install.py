@@ -1,6 +1,7 @@
 import os
 import json
 from types import SimpleNamespace
+from subprocess import check_output
 
 with open('config.json') as config_file:
     config = json.load(config_file, object_hook = lambda d: SimpleNamespace(**d))
@@ -15,6 +16,18 @@ timezone = config.timezone
 
 users = config.users
 
+vendor = list(
+    filter(
+        lambda x: x.startswith('Vendor ID:'),
+        check_output(['lscpu'])
+            .decode()
+            .split('\n')
+    )
+)[0].split(' ')[-1]
+
+microcode = 'intel-ucode' if vendor == 'GenuineIntel' else 'amd-ucode' if vendor == 'AuthenticAMD' else ''
+
+
 packages = [
     'base',
     'sudo',
@@ -22,7 +35,8 @@ packages = [
     'linux-firmware',
     'grub',
     'efibootmgr',
-    'os-prober'
+    'os-prober',
+    microcode
 ]
 services = config.services
 
