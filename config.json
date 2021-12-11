@@ -6,11 +6,13 @@
     "partitions" : {
         "efi" : {
             "partition" : "/dev/sda1",
-            "filesystem" : "FAT32"
+            "filesystem" : "FAT32",
+            "format" : false
         },
         "root" : {
             "partition" : "/dev/sda2",
-            "filesystem" : "ext4"
+            "filesystem" : "ext4",
+            "format" : true
         }
     },
     "users" : [

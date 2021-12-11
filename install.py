@@ -7,7 +7,9 @@ with open('config.json') as config_file:
     config = json.load(config_file, object_hook = lambda d: SimpleNamespace(**d))
 
 efi = config.partitions.efi.partition
+efi_format = config.partitions.efi.format
 root = config.partitions.root.partition
+root_format = config.partitions.root.format
 
 hostname = config.hostname
 language = config.language
@@ -43,8 +45,8 @@ services = config.services
 commands = [
     'cat mirrorlist > /etc/pacman.d/mirrorlist',
     'timedatectl set-ntp true',
-    f'mkfs.fat -F32 {efi}',
-    f'mkfs.ext4 {root}',
+    f'mkfs.fat -F32 {efi}' if efi_format else None,
+    f'mkfs.ext4 {root}' if root_format else None,
     f'mount {root} /mnt',
     'mkdir /mnt/efi',
     f'mount {efi} /mnt/efi',
@@ -80,4 +82,5 @@ for user in users:
 commands += config.postinstall
 
 for command in commands:
-    os.system(command)
+    if command != None:
+        os.system(command)
