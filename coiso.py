@@ -27,12 +27,12 @@ commands = [
     'grub-mkconfig -o /boot/grub/grub.cfg',
     'pacman -S git base-devel',
     'useradd -m -G wheel yay-tmp',
-    'cd /home/yay-tmp'
+    'cd /home/yay-tmp',
     'git clone https://aur.archlinux.org/yay-bin.git',
     'cd yay-bin',
     'su yay-tmp makepkg -si',
-    f'su yay -S {" ".join(config.packages)}'
-    'userdel -r yay-tmp'
+    f'su yay -S {" ".join(config.packages)}',
+    'userdel -r yay-tmp',
     f'systemctl enable {" ".join(services)}',
 ]
 
