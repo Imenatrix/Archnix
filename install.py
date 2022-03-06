@@ -55,9 +55,9 @@ commands = [
     'genfstab -U /mnt >> /mnt/etc/fstab',
     'cp coiso.py /mnt',
     'cp config.json /mnt',
-    'arch-chroot /mnt python coiso.py'
+    'arch-chroot /mnt python coiso.py',
     'rm /mnt/coiso.py',
-    'rm /mnt/config.json'
+    'rm /mnt/config.json',
 ]
 
 commands += config.postinstall
