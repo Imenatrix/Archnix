@@ -25,7 +25,7 @@ commands = [
     'grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'bash -c "echo GRUB_DISABLE_OS_PROBER=false >> /etc/default/grub"',
     'grub-mkconfig -o /boot/grub/grub.cfg',
-    f'arch-chroot /mnt systemctl enable {" ".join(services)}',
+    f'systemctl enable {" ".join(services)}',
 ]
 
 for user in users:
