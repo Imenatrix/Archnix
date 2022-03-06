@@ -38,6 +38,7 @@ packages = [
     'grub',
     'efibootmgr',
     'os-prober',
+    'python',
     microcode
 ]
 services = config.services
