@@ -30,8 +30,8 @@ commands = [
     'cd /home/yay-tmp',
     'git clone https://aur.archlinux.org/yay-bin.git',
     'cd yay-bin',
-    'su yay-tmp makepkg -si',
-    f'su yay -S {" ".join(config.packages)}',
+    'su yay-tmp -c "makepkg -si"',
+    f'su yay-tmp -c "yay -S {" ".join(config.packages)}"',
     'userdel -r yay-tmp',
     f'systemctl enable {" ".join(services)}',
 ]
