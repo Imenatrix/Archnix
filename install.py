@@ -39,6 +39,7 @@ packages = [
     'efibootmgr',
     'os-prober',
     'python',
+    'dhcpcd',
     microcode
 ]
 services = config.services
