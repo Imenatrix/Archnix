@@ -61,7 +61,7 @@ commands = [
 ]
 
 for user in users:
-    coiso = [
+    commands += [
         f'cp lilo.py /mnt/home/{user.login}',
         f'cp config.json /mnt/home/{user.login}',
     ]
