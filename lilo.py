@@ -9,13 +9,13 @@ packages = config.packages
 services = config.services
 
 commands = [
-    'pacman -S git base-devel',
+    'sudo pacman -S git base-devel',
     'git clone https://aur.archlinux.org/yay-bin.git',
     'cd yay-bin',
     'makepkg -si',
     'rm -rf yay-bin',
     f'yay -S {" ".join(packages)}',
-    f'systemctl enable {" ".join(services)}'
+    f'sudo systemctl enable {" ".join(services)}'
 ]
 
 for command in commands:
