@@ -44,7 +44,6 @@ packages = [
 services = config.services
 
 commands = [
-    'cat mirrorlist > /etc/pacman.d/mirrorlist',
     'timedatectl set-ntp true',
     f'mkfs.fat -F32 {efi}' if efi_format else None,
     f'mkfs.ext4 {root}' if root_format else None,
