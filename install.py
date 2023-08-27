@@ -60,6 +60,12 @@ commands = [
     'rm /mnt/config.json',
 ]
 
+for user in users:
+    coiso = [
+        f'cp lilo.py /home/{user.login}',
+        f'cp config.json /home/{user.login}',
+    ]
+
 commands += config.postinstall
 
 for command in commands:

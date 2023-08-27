@@ -24,16 +24,7 @@ commands = [
     'passwd',
     'grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'bash -c "echo GRUB_DISABLE_OS_PROBER=false >> /etc/default/grub"',
-    'grub-mkconfig -o /boot/grub/grub.cfg',
-    'pacman -S git base-devel',
-    'useradd -m -G wheel yay-tmp',
-    'cd /home/yay-tmp',
-    'git clone https://aur.archlinux.org/yay-bin.git',
-    'cd yay-bin',
-    'su yay-tmp -c "makepkg -si"',
-    f'su yay-tmp -c "yay -S {" ".join(config.packages)}"',
-    'userdel -r yay-tmp',
-    f'systemctl enable {" ".join(services)}',
+    'grub-mkconfig -o /boot/grub/grub.cfg'
 ]
 
 for user in users:
