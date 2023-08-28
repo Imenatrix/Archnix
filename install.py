@@ -66,8 +66,6 @@ for user in users:
         f'cp config.json /mnt/home/{user.login}',
     ]
 
-commands += config.postinstall
-
 for command in commands:
     if command != None:
         os.system(command)

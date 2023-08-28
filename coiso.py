@@ -31,8 +31,6 @@ for user in users:
     commands.append(f'useradd -m -G wheel -s /bin/{user.shell} {user.login}')
     commands.append(f'passwd {user.login}')
 
-#commands += config.postinstall
-
 for command in commands:
     if command != None:
         os.system(command)

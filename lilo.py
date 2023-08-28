@@ -17,6 +17,8 @@ commands = [
     f'sudo systemctl enable {" ".join(services)}'
 ]
 
+commands += config.postinstall
+
 for command in commands:
     if command is not None:
         os.system(command)
