@@ -24,11 +24,12 @@ commands = [
     'passwd',
     'grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'bash -c "echo GRUB_DISABLE_OS_PROBER=false >> /etc/default/grub"',
-    'grub-mkconfig -o /boot/grub/grub.cfg'
+    'grub-mkconfig -o /boot/grub/grub.cfg',
+    'echo "%wheel      ALL=(ALL:ALL) ALL" >> /etc/sudoers'
 ]
 
 for user in users:
-    commands.append(f'useradd -m -G wheel -s /bin/{user.shell} {user.login}')
+    commands.append(f'useradd -m -G wheel {user.login}')
     commands.append(f'passwd {user.login}')
 
 for command in commands:
