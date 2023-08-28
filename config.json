@@ -22,7 +22,6 @@
         }
     ],
     "packages" : [
-        "dhcpcd",
         "qtile",
         "xorg-server",
         "lightdm",
@@ -32,7 +31,6 @@
         "fish"
     ],
     "services" : [
-        "dhcpcd",
         "lightdm"
     ],
     "postinstall" : [

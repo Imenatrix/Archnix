@@ -25,7 +25,8 @@ commands = [
     'grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch',
     'bash -c "echo GRUB_DISABLE_OS_PROBER=false >> /etc/default/grub"',
     'grub-mkconfig -o /boot/grub/grub.cfg',
-    'echo "%wheel      ALL=(ALL:ALL) ALL" >> /etc/sudoers'
+    'echo "%wheel      ALL=(ALL:ALL) ALL" >> /etc/sudoers',
+    'systemctl enable dhcpcd'
 ]
 
 for user in users:
